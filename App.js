@@ -1,10 +1,10 @@
 
 import React from 'react'
-import ListingDetailScreen from './app/screens/ListingDetailScreen'
+import ViewImageScreen from './app/screens/ViewImageScreen'
 
 
 export default function App() {
   return (
-    <ListingDetailScreen />
+    <ViewImageScreen />
   )
 }

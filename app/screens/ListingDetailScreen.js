@@ -2,6 +2,7 @@
  import React from 'react'
 import AppText from '../components/AppText'
 import colors from '../config/colors'
+import ListItem from '../components/ListItem'
  
  export default function ListingDetailScreen() {
    return (
@@ -10,6 +11,12 @@ import colors from '../config/colors'
        <View style={styles.detailContainer}>
             <AppText style={styles.title}>Red jacket for sale</AppText>
             <AppText style={styles.price}>$100</AppText>
+       </View>
+       <View style={styles.userContainer} >
+            <ListItem image={require('../assets/profile.jpeg')} 
+                    title="Kaung Myat Thu"
+                    subtitle="5 Listing"
+            />
        </View>
      </View>
    )
@@ -30,5 +37,8 @@ import colors from '../config/colors'
     },
     detailContainer: {
         margin: 13
+    },
+    userContainer: {
+        marginVertical: 20
     }
  })

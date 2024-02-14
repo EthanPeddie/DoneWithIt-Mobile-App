@@ -1,13 +1,14 @@
 import React from "react";
 
-import MessageScreen from "./app/screens/MessageScreen";
 import Screen from "./app/components/Screen";
+
+import ListItem from "./app/components/ListItem";
 import Icon from "./app/components/Icon";
 
 export default function App() {
   return (
     <Screen>
-      <Icon name="email" />
+      <ListItem title="Kaung" ImageComponent={<Icon name="email" />} />
     </Screen>
   );
 }

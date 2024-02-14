@@ -11,16 +11,20 @@ export default function ListItem({
   subtitle,
   onPress,
   renderRightActions,
+  ImageComponent,
 }) {
   return (
     <GestureHandlerRootView>
       <Swipeable renderRightActions={renderRightActions}>
         <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
           <View style={styles.container}>
-            <Image style={styles.image} source={image} />
+            {ImageComponent}
+            {image && <Image style={styles.image} source={image} />}
             <View style={styles.textContainer}>
               <AppText style={styles.title}>{title}</AppText>
-              <AppText style={styles.subtitle}>{subtitle}</AppText>
+              {subtitle && (
+                <AppText style={styles.subtitle}>{subtitle}</AppText>
+              )}
             </View>
           </View>
         </TouchableHighlight>
@@ -46,6 +50,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "500",
     marginBottom: 4,
+    justifyContent: "center",
   },
   subtitle: {
     color: colors.medium,

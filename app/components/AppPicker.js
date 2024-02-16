@@ -8,7 +8,13 @@ import { TouchableWithoutFeedback } from "react-native";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-const AppPicker = ({ icon, items, placeholder }) => {
+const AppPicker = ({
+  icon,
+  items,
+  selectedItem,
+  onSelectedItem,
+  placeholder,
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -22,7 +28,7 @@ const AppPicker = ({ icon, items, placeholder }) => {
               style={{ marginRight: 10 }}
             />
           )}
-          <AppText>{placeholder}</AppText>
+          <AppText>{selectedItem ? selectedItem.label : placeholder}</AppText>
           <View style={styles.iconContainer}>
             <MaterialCommunityIcons
               name="chevron-down"
@@ -38,7 +44,15 @@ const AppPicker = ({ icon, items, placeholder }) => {
           <FlatList
             data={items}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <PickerItem label={item.label} />}
+            renderItem={({ item }) => (
+              <PickerItem
+                label={item.label}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectedItem(item);
+                }}
+              />
+            )}
           />
         </Screen>
       </Modal>

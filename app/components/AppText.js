@@ -1,5 +1,6 @@
 import { View, Text, Platform, StyleSheet } from "react-native";
 import React from "react";
+import styles from "../config/styles";
 
 export default function AppText({ children, style }) {
   return (
@@ -8,10 +9,3 @@ export default function AppText({ children, style }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 18,
-    fonFamilty: Platform.OS == "android" ? "Roboto" : "Avenir",
-  },
-});

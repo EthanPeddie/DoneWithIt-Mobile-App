@@ -1,6 +1,20 @@
 import React from "react";
-import LoginScreen from "./app/screens/LoginScreen";
+import ListItem from "./app/components/ListItem";
+import Screen from "./app/components/Screen";
 
 export default function App() {
-  return <LoginScreen />;
+  return (
+    <Screen>
+      <ListItem
+        title="Kaung Myat Thu"
+        image={require("./app/assets/profile.jpeg")}
+        subtitle="Hello World"
+        onPress={() => console.log("tag")}
+      />
+      <ListItem
+        title="Kaung Myat Thu"
+        image={require("./app/assets/profile.jpeg")}
+      />
+    </Screen>
+  );
 }
